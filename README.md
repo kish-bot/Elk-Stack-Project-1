@@ -44,9 +44,9 @@ Web3 | Web Server | 10.0.0.7 | Linux | DVWA
 
 The machines on the internal network are not exposed to the public Internet.
 
-Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the designated Admin's public IP address
+Only the Jump Box machine can accept connections from the Internet. Access to this machine is only allowed from the designated Admin's public IP address.
 
-Machines within the network can only be accessed by each other. Jump Box can SSH into the Web Servers and Elk Servers. Web Servers sent log information to the Elk Server
+Machines within the network can only be accessed by each other. Jump Box can SSH into the Web Servers and Elk Servers. Web Servers sent log information to the Elk Server.
 
 A summary of the access policies in place can be found in the table below.
 
@@ -93,9 +93,8 @@ In order to use the playbook, you will need to have an Ansible control node alre
 
 SSH into the control node and follow the steps below:
 
-1. Copy the .yml files to `/etc/ansible` directory.
-2. Update the hosts file to be as follows. This will assign the VM servers to their server groups for the Ansible Playbooks. 
-
+* Copy the filebeat-config.yml and metricbeat-config.yml file to /etc/ansible/files.
+* Update the configuration files to include the Private IP of the ELK-Server to the ElasticSearch and Kibana Sections of the Configuration File.
 ```
 [webservers]
 10.0.0.5
@@ -103,12 +102,13 @@ SSH into the control node and follow the steps below:
 10.0.0.7
 [elkservers]
 10.1.0.4
-```   
-3. Run the playbook, and navigate to ELK-Server-PublicIP:5601/app/kibana to check that the installation worked as expected.
+```
+* Run the playbook
+
 ```
 cd /etc/ansible
 ansible-playbook elk-playbook.yml
 ansible-playbook filebeat-playbook.yml
 ansible-playbook metricbeat-playbook.yml 
 ```
-4. Then, run: `curl http://10.0.0.8:5601`. (You can also use the loadbalancer's public IP address) This is the address of Kibana. If the installation succeeded, this command should print HTML to the console.
+* Navigate to ELK-Server-PublicIP:5601/app/kibana to check that the installation worked as expected.
