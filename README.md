@@ -18,15 +18,18 @@ This document contains the following details:
   * Machines Being Monitored
 * How to Use the Ansible Build
 
-## Description of the Topology**
+## Description of the Topology
 
 The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
 
-Load balancing ensures that the application will be highly available, in addition to restricting traffic to the network. Load balancers protects the system from DDoS attacks by shifting attack traffic. The advantage of a jump box is to give access to the user from a single node that can be secured and monitored.
+Load balancing ensures that the application will be highly available, in addition to restricting traffic to the network. 
+* Load balancers protects the system from DDoS attacks by shifting attack traffic. 
+* The advantage of a jump box is to give access to the user from a single node that can be secured and monitored.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the data and system logs.
 
-Filebeat watches for any information in the file system which has been changed and when it has. Metricbeat takes the metrics and statistics that you collects and displays in a format of your choosing.
+* Filebeat watches for any information in the file system which has been changed and when it has. 
+* Metricbeat takes the metrics and statistics that you collects and displays in a format of your choosing.
 
 The configuration details of each machine may be found below.
 
